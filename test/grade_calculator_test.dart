@@ -28,7 +28,7 @@ void main() {
     expect(find.text('0'), findsNothing);
     expect(find.text('1'), findsOneWidget);
   });
-} */
+} 
 
 import 'package:test/test.dart';
 import 'package:grade_calculator/main.dart';
@@ -54,5 +54,54 @@ void main() {
       final student = Student(name: "Test", matricule: "004", marks: 150);
       expect(student.grade, equals('Invalid'));
     });
+  });
+} */
+
+import 'package:test/test.dart';
+import 'package:grade_calculator/student_processor.dart';
+
+void main() {
+  group('Grade Calculation Tests', () {
+
+    test('Returns A for marks between 80 and 100', () {
+      final student = Student(name: 'John', matricule: '001', marks: 85);
+      expect(student.grade, equals('A'));
+    });
+
+    test('Returns B for marks between 60 and 79', () {
+      final student = Student(name: 'Jane', matricule: '002', marks: 70);
+      expect(student.grade, equals('B'));
+    });
+
+    test('Returns C for marks between 50 and 59', () {
+      final student = Student(name: 'Mike', matricule: '003', marks: 55);
+      expect(student.grade, equals('C'));
+    });
+
+    test('Returns D for marks between 40 and 49', () {
+      final student = Student(name: 'Anna', matricule: '004', marks: 45);
+      expect(student.grade, equals('D'));
+    });
+
+    test('Returns F for marks below 40', () {
+      final student = Student(name: 'Paul', matricule: '005', marks: 20);
+      expect(student.grade, equals('F'));
+    });
+
+    test('Returns F when marks are null', () {
+      final student = Student(name: 'Null', matricule: '006');
+      expect(student.grade, equals('F'));
+    });
+
+    test('Returns Invalid when marks > 100', () {
+      final student = Student(name: 'Over', matricule: '007', marks: 150);
+      expect(student.grade, equals('Invalid'));
+    });
+
+    test('Returns Invalid when marks < 0', () {
+      final student = Student(name: 'Negative', matricule: '008', marks: -10);
+      expect(student.grade, equals('Invalid'));
+    });
+
   });
 }
