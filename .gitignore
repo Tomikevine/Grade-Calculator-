@@ -1,0 +1,22 @@
+# Gradle
+.gradle/
+build/
+out/
+.kotlin/
+
+# IDE/editor
+.idea/
+.vscode/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local/runtime artifacts
+*.log
+*.tmp
+*.swp
+
+# Accidental malformed scaffold directory
+\{src/
